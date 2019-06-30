@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home Page</title>
+    <a href="{%url 'task1-logout' %}">Logout</a>
+</head>
+<body>
+<center><h1>Hello,<p style="color:red">{{request.user}}</p></h1> </center>
+<center><h3> Your balance: {{money}}</h3> </center>
+
+<div>
+{% for test in tests %}
+
+    <div style="border:5px solid blue;background-color:blue;width:170px;height:170px;">
+
+        <a href="/{{test.num_id}}/click/" method="post"  style="color:white;"> <p style="margin-top:40px;margin-left:30px"> Вариант: {{ test.num_id }}<br> Цена: {{ test.cost }} тг </p></a><br>
+        </div>
+    {% endfor %}
+
+</div>
+</body>
+</html>

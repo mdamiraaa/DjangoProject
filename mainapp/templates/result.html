@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Test</title>
+</head>
+<body>
+<h2>You paid  {{ test.cost }} тг </h2>
+<h4>Your balance: {{balance}}</h4>
+<center><h3>Test:{{test.num_id}} <br> Физика-Математика</h3></center>
+
+<!--<h4>you can start the test</h4>-->
+
+<!------------------------------------------Kaz. tarih ---------------------------------------------->
+    <h2>{{test.subject_1.subject_name}}</h2>
+        <form method="POST">
+        {% csrf_token %}
+            {% for qt in test.subject_1.questions %}
+            <h4>{{forloop.counter}} )  {{ qt.q }}</h4>
+
+            <input type="radio" name="check{{forloop.counter}}" value="a"> A) {{qt.a}}<br>
+            <input type="radio" name="check{{forloop.counter}}" value="b"> B) {{qt.b}}<br>
+            <input type="radio" name="check{{forloop.counter}}" value="c"> C) {{qt.c}}<br>
+            <input type="radio" name="check{{forloop.counter}}" value="d"> D) {{qt.d}}<br>
+            <input type="radio" name="check{{forloop.counter}}" value="e"> E) {{qt.e}}<br>
+            {% endfor %}
+            <input type="submit" value="OK" >
+        </form>
+    <!--<form action="">-->
+        <!--<input type="radio"  name="answer" value="a"> A) {{qt.a}}<br>-->
+        <!--<input type="radio" name="answer" value="b"> B) {{qt.b}}<br>-->
+        <!--<input type="radio" name="answer" value="c"> C) {{qt.c}}<br>-->
+        <!--<input type="radio" name="answer" value="d"> D) {{qt.d}}<br>-->
+        <!--<input type="radio" name="answer" value="e"> E) {{qt.e}}<br>-->
+    <!--</form>-->
+
+
+    <!--<h2>{{test.subject_2.subject_name}}</h2>-->
+    <!--{% for qt in test.subject_2.texts %}-->
+    <!--<h4> Текст : {{forloop.counter}}</h4>-->
+    <!--<p>{{qt.text }}</p>-->
+    <!--{% endfor %}-->
+    <!--{% for qt in test.subject_2.questions %}-->
+    <!--<h4>{{forloop.counter}} )  {{ qt.q }}</h4>-->
+    <!--<p> A) {{qt.a}}</p>-->
+    <!--<p> B) {{qt.b}}</p>-->
+    <!--<p> C) {{qt.c}}</p>-->
+    <!--<p> D) {{qt.d}}</p>-->
+    <!--<p> E) {{qt.e}}</p>-->
+
+    <!--{% endfor %}-->
+</body>
+</html>
